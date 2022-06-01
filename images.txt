@@ -3,3 +3,6 @@
 3. img 3
 4. img 4
 5. img 5
+6. img 6
+7. img 7
+8. img 8
