@@ -1,0 +1,181 @@
+1. Create a directory dir_1
+mkdir dir_1
+
+2. Open dir_1
+cd dir_1
+
+3. Create directory inner_dir_1
+mkdir inner_dir_1
+
+4. Path of the working directory
+pwd
+
+5. Create a file 
+touch tf_1.txt
+
+6. Use command cat to create txt file with certain strings
+cat > tf_2.txt
+- the first 1
+- the second 2
+- the third
+^C
+
+7. Enter inner_dir_1
+cd inner_dir_1
+
+8. Use command cat to create txt file with some random strings
+cat > tf_3.txt
+Test task
+^C
+
+9.10. Use command cat to add to tf_3.txt string “the second 2” and “the sec 2”
+cat >> tf_3.txt
+'the second 2'                       
+'the sec 2'
+^C
+
+11.Use command cat to add to tf_2.txt string “the sec 3”
+cat >> tf_2.txt
+'the sec 3'
+^C
+
+12. Use command cat to add to tf_3.txt string “the SeCoNd 2”
+cat >> tf_3.txt
+'the seConD 2'
+^C
+
+13. Use command cat to add to tf_2.txt string “the SeConD 2”
+cat >> tf_2.txt
+'the seConD 2'
+^C
+
+14. Use command cat to create txt file tf_4.txt with random 15 strings.
+cat > tf_4.txt
+1 
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+^C
+
+15. Use command cat to create txt file tf_5.txt with random 13 strings.
+cat > tf_5.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+^C
+
+16.List files and directory
+ls -la
+total 32
+drwxr-xr-x  6 yana  staff  192 May 30 17:56 .
+drwxr-xr-x  5 yana  staff  160 May 30 17:47 ..
+-rw-r--r--  1 yana  staff   27 May 30 17:51 tf_2.txt
+-rw-r--r--  1 yana  staff   52 May 30 17:50 tf_3.txt
+-rw-r--r--  1 yana  staff   33 May 30 17:54 tf_4.txt
+-rw-r--r--  1 yana  staff   30 May 30 17:58 tf_5.txt
+
+17. Exit the inner_dir_1
+cd ../
+
+18. View tf_3.txt
+cat inner_dir_1/tf_3.txt
+Test task
+'the second 2'
+'the sec 2'
+'the SeCoNd 2'
+
+19. Find the way to file tf_4.txt
+find . -name tf_4.txt
+
+20. Delete strings from tf_4.txt file
+vim
+
+21. Find way to files that have "tf" in their name ignore uppercase vs. lowercase
+find . -iname "*tf*"
+
+22. Find way to files that have "tf" in their name 
+find . -name "*tf*"
+
+23. Search for a string "sec" in groups of files in certain directory
+grep -R sec dir_1
+dir_1/home.txt:- the second 2
+dir_1/home.txt:'the second 2'                       
+dir_1/home.txt:'the sec 2'
+dir_1/home.txt:'the sec 3'
+dir_1/home.txt:'the second 2'
+dir_1/home.txt:'the sec 2'
+dir_1/tf_2.txt:- the second 2
+dir_1/inner_dir_1/tf_3.txt:'the second 2'
+dir_1/inner_dir_1/tf_3.txt:'the sec 2'
+dir_1/inner_dir_1/tf_2.txt:'the sec 3'
+
+24. Search for a string "sec" in groups of files ignore uppercase vs. lowercase
+grep -iR sec dir_1
+
+25. Search just for "sec" in groups of files 
+grep -wR sec dir_1
+
+26. Search just for "sec" in groups of files ignore uppercase vs. lowercase
+grep -iwR sec .
+
+27. Search for a string "second" in groups of files
+grep -R second . 
+
+28. Search for a string "second" in groups of files ignore uppercase vs. lowercase
+grep -iR second .
+
+29. Search for a string "second" in directories inside the workink directory
+grep -R second */
+
+30. Find the way to the file and it's name that has “second” in his name (in working directory)
+find . | grep -Rl second .
+
+31. Find all strings in all files without "second"
+grep -Rv second .
+
+32. Find name and way to the files without "second"
+find . | grep -vRl second .
+
+33. Print the last 4 strings of the file
+tail -1 tf_2.txt
+
+34. Print the first 4 strings of the file
+head -1 tf_2.txt
+
+35. Use just one command to create a directory, create a txt file and write something inside
+mkdir folder1 && cd folder1 && touch task2.txt && cat > task2.txt
+
+36. Use one command to move to the certain folder files with word "sec"
+
+grep -i -Z -r -l 'sec' . | xargs -I{} mv {} ./folder
+
+37. Use one command to copy to the certain folder files with word "sec"
+grep -i -Z -r -l 'sec' . | xargs -I{} cp {} ./folder1
+
+38. Use one command to delete files with word "sec" out of every folder
+grep -i -Z -r -l 'sec' . | xargs -I{} rm {} .
+
+39. "Write "Good job!"
+echo "Good job!"
+
+
